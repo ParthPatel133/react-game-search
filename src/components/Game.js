@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 
-const Game = ({name, id, released, image}) => {
+const Game = ({name, released, image}) => {
   return (
     <StyledGame>
       <h3>{name}</h3>
