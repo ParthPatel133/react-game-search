@@ -36,8 +36,19 @@ const Home = () => {
   );
 };
 
-const StyledGameList = styled(motion.div)``;
+const StyledGameList = styled(motion.div)`
+  padding: 0rem 2rem;
+  h2 {
+    padding: 2rem 0;
+  }
+`;
 
-const StyledGames = styled(motion.div)``;
+const StyledGames = styled(motion.div)`
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 1rem;
+  row-gap: 2rem;
+`;
 
 export default Home;
