@@ -1,43 +1,47 @@
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
-
+import React, {Fragment} from 'react';
 //redux
 import {useSelector} from 'react-redux';
 
 const GameDetail = () => {
   //get data with selector
-  const {screenshot, game} = useSelector((state) => state.detail);
+  const {screenshot, game, isLoading} = useSelector((state) => state.detail);
 
   return (
-    <StyledCardShadow>
-      <StyledDetail>
-        <StyledStats>
-          <div className='rating'>
-            <h3>{game.name}</h3>
-            <p> Rating: {game.rating}</p>
-          </div>
-          <StyledInfo>
-            <h3>Platforms</h3>
-            <StyledPlatforms>
-              {game.platforms.map((data) => (
-                <h3 key={data.platform.id}>{data.platform.name}</h3>
+    <Fragment>
+      {!isLoading && (
+        <StyledCardShadow>
+          <StyledDetail>
+            <StyledStats>
+              <div className='rating'>
+                <h3>{game.name}</h3>
+                <p> Rating: {game.rating}</p>
+              </div>
+              <StyledInfo>
+                <h3>Platforms</h3>
+                <StyledPlatforms>
+                  {game.platforms.map((data) => (
+                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                  ))}
+                </StyledPlatforms>
+              </StyledInfo>
+            </StyledStats>
+            <StyledMedia>
+              <img src='{game.background_image}' alt='Game Wallpaper' />
+            </StyledMedia>
+            <StyledDescription>
+              <p>{game.description_raw}</p>
+            </StyledDescription>
+            <div className='gallery'>
+              {screenshot.results.map((item) => (
+                <img src='{item.image}' alt='Game Screenshot' key={item.id} />
               ))}
-            </StyledPlatforms>
-          </StyledInfo>
-        </StyledStats>
-        <StyledMedia>
-          <img src='{game.background_image}' alt='Game Wallpaper' />
-        </StyledMedia>
-        <StyledDescription>
-          <p>{game.description_raw}</p>
-        </StyledDescription>
-        <div className='gallery'>
-          {screenshot.results.map((item) => (
-            <img src='{item.image}' alt='Game Screenshot' key={item.id} />
-          ))}
-        </div>
-      </StyledDetail>
-    </StyledCardShadow>
+            </div>
+          </StyledDetail>
+        </StyledCardShadow>
+      )}
+    </Fragment>
   );
 };
 

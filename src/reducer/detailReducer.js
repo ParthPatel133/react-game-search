@@ -3,6 +3,7 @@ const initalState = {
   screenshot: {
     results: [],
   },
+  isLoading: true,
 };
 
 const detailReducer = (state = initalState, aciton) => {
@@ -12,6 +13,12 @@ const detailReducer = (state = initalState, aciton) => {
         ...state,
         game: aciton.payload.game,
         screenshot: aciton.payload.screenshot,
+        isLoading: false,
+      };
+    case 'LOADING_DETAIL':
+      return {
+        ...state,
+        isLoading: true,
       };
     default:
       return {...state};
