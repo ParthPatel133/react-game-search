@@ -28,14 +28,14 @@ const GameDetail = () => {
               </StyledInfo>
             </StyledStats>
             <StyledMedia>
-              <img src='{game.background_image}' alt='Game Wallpaper' />
+              <img src={game.background_image} alt='Game Wallpaper' />
             </StyledMedia>
             <StyledDescription>
               <p>{game.description_raw}</p>
             </StyledDescription>
             <div className='gallery'>
               {screenshot.results.map((item) => (
-                <img src='{item.image}' alt='Game Screenshot' key={item.id} />
+                <img src={item.image} alt='Game Screenshot' key={item.id} />
               ))}
             </div>
           </StyledDetail>
