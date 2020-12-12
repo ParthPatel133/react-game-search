@@ -7,6 +7,7 @@ import {loadGames} from '../actions/gamesAction';
 
 //components
 import Game from '../components/Game';
+import GameDetail from '../components/GameDetail';
 
 const Home = () => {
   //FETCH GAMES DATA
@@ -20,6 +21,7 @@ const Home = () => {
 
   return (
     <StyledGameList>
+      <GameDetail />
       <h2>Upcoming games</h2>
       <StyledGames>
         {upcoming.map((game) => (
