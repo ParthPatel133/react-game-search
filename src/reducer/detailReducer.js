@@ -1,6 +1,8 @@
 const initalState = {
-  game: {},
-  screenshot: {},
+  game: {platforms: []},
+  screenshot: {
+    results: [],
+  },
 };
 
 const detailReducer = (state = initalState, aciton) => {
