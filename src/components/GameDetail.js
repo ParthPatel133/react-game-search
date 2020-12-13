@@ -13,6 +13,8 @@ import xbox from '../img/xbox.svg';
 import nintendo from '../img/nintendo.svg';
 import apple from '../img/apple.svg';
 import gamepad from '../img/gamepad.svg';
+import starEmpty from '../img/star-empty.png';
+import starFull from '../img/star-full.png';
 
 const GameDetail = ({pathId}) => {
   const history = useHistory();
@@ -44,6 +46,20 @@ const GameDetail = ({pathId}) => {
     }
   };
 
+  //Get Ratings
+  const getRatings = () => {
+    const stars = [];
+    const rating = Math.floor(game.rating);
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<img alt='star' key={i} src={starFull}></img>);
+      } else {
+        stars.push(<img alt='star' key={i} src={starEmpty}></img>);
+      }
+    }
+    return stars;
+  };
+
   //get data with selector
   const {screenshot, game, isLoading} = useSelector((state) => state.detail);
 
@@ -55,7 +71,8 @@ const GameDetail = ({pathId}) => {
             <StyledStats>
               <div className='rating'>
                 <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
-                <p> Rating: {game.rating}</p>
+                <p> Rating: {Math.floor(game.rating)}</p>
+                {getRatings()}
               </div>
               <StyledInfo>
                 <h3>Platforms</h3>
@@ -134,6 +151,11 @@ const StyledStats = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline;
+  }
 `;
 
 const StyledInfo = styled(motion.div)`
