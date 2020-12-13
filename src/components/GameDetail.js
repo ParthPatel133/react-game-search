@@ -6,6 +6,14 @@ import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {smallImage} from '../util';
 
+//IMAGES
+import playstation from '../img/playstation.svg';
+import steam from '../img/steam.svg';
+import xbox from '../img/xbox.svg';
+import nintendo from '../img/nintendo.svg';
+import apple from '../img/apple.svg';
+import gamepad from '../img/gamepad.svg';
+
 const GameDetail = ({pathId}) => {
   const history = useHistory();
 
@@ -15,6 +23,24 @@ const GameDetail = ({pathId}) => {
     if (element.classList.contains('shadow')) {
       document.body.style.overflow = 'auto';
       history.push('/');
+    }
+  };
+
+  //GET PLATFORM SVG images
+  const getPlatform = (platform) => {
+    switch (platform) {
+      case 'PlayStation 4':
+        return playstation;
+      case 'Xbox One':
+        return xbox;
+      case 'PC':
+        return steam;
+      case 'Nintendo Switch':
+        return nintendo;
+      case 'iOS':
+        return apple;
+      default:
+        return gamepad;
     }
   };
 
@@ -35,7 +61,11 @@ const GameDetail = ({pathId}) => {
                 <h3>Platforms</h3>
                 <StyledPlatforms>
                   {game.platforms.map((data) => (
-                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                    <img
+                      alt={data.platform.name}
+                      key={data.platform.id}
+                      src={getPlatform(data.platform.name)}
+                    />
                   ))}
                 </StyledPlatforms>
               </StyledInfo>
