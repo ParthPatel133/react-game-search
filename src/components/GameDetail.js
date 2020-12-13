@@ -28,7 +28,7 @@ const GameDetail = ({pathId}) => {
           <StyledDetail layoutId={pathId}>
             <StyledStats>
               <div className='rating'>
-                <h3>{game.name}</h3>
+                <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                 <p> Rating: {game.rating}</p>
               </div>
               <StyledInfo>
@@ -41,7 +41,8 @@ const GameDetail = ({pathId}) => {
               </StyledInfo>
             </StyledStats>
             <StyledMedia>
-              <img
+              <motion.img
+                layoutId={`image ${pathId}`}
                 src={smallImage(game.background_image, 1280)}
                 alt='Game Wallpaper'
               />

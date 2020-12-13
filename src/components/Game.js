@@ -20,9 +20,15 @@ const Game = ({name, released, image, id}) => {
   return (
     <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
+        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
-        {image && <img src={smallImage(image, 640)} alt={name} />}
+        {image && (
+          <motion.img
+            layoutId={`image ${stringPathId}`}
+            src={smallImage(image, 640)}
+            alt={name}
+          />
+        )}
       </Link>
     </StyledGame>
   );
