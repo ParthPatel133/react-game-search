@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {smallImage} from '../util';
 
-const GameDetail = () => {
+const GameDetail = ({pathId}) => {
   const history = useHistory();
 
   //EXIT GAME DETAIL
@@ -25,7 +25,7 @@ const GameDetail = () => {
     <Fragment>
       {!isLoading && (
         <StyledCardShadow className='shadow' onClick={exitDetailHandler}>
-          <StyledDetail>
+          <StyledDetail layoutId={pathId}>
             <StyledStats>
               <div className='rating'>
                 <h3>{game.name}</h3>

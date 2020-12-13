@@ -8,6 +8,8 @@ import {loadDetail} from '../actions/detailAction';
 import {Link} from 'react-router-dom';
 
 const Game = ({name, released, image, id}) => {
+  //converting id to String for matches pathId in gameDetail, For AnimateSharedLayout
+  const stringPathId = id.toString();
   //LOAD DETAILS
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
@@ -16,7 +18,7 @@ const Game = ({name, released, image, id}) => {
   };
 
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
         <h3>{name}</h3>
         <p>{released}</p>
