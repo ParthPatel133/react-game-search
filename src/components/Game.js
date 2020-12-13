@@ -20,7 +20,7 @@ const Game = ({name, released, image, id}) => {
       <Link to={`/game/${id}`}>
         <h3>{name}</h3>
         <p>{released}</p>
-        <img src={smallImage(image, 640)} alt={name} />
+        {image && <img src={smallImage(image, 640)} alt={name} />}
       </Link>
     </StyledGame>
   );
