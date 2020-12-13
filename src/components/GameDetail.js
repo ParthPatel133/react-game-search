@@ -74,6 +74,7 @@ const StyledCardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
   &::-webkit-scrollbar {
     width: 0.3rem;
   }
@@ -92,6 +93,7 @@ const StyledDetail = styled(motion.div)`
   background: white;
   position: absolute;
   left: 10%;
+  z-index: 10;
   color: black;
   img {
     width: 100%;
