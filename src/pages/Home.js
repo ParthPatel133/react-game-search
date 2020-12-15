@@ -16,7 +16,6 @@ import {
   LazyLoadComponent,
   trackWindowScroll,
 } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Home = () => {
   //GET CURRENT LOCATION
@@ -48,13 +47,15 @@ const Home = () => {
             <h2>Searched games</h2>
             <StyledGames>
               {searched.map((game) => (
-                <Game
-                  name={game.name}
-                  id={game.id}
-                  released={game.released}
-                  image={game.background_image}
-                  key={game.id}
-                />
+                <LazyLoadComponent>
+                  <Game
+                    name={game.name}
+                    id={game.id}
+                    released={game.released}
+                    image={game.background_image}
+                    key={game.id}
+                  />
+                </LazyLoadComponent>
               ))}
             </StyledGames>
           </div>
