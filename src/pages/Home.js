@@ -4,13 +4,20 @@ import styled from 'styled-components';
 import {motion, AnimatePresence, AnimateSharedLayout} from 'framer-motion';
 import {useLocation} from 'react-router-dom';
 import Spinner from '../components/Spinner';
+//components
+import Game from '../components/Game';
+import GameDetail from '../components/GameDetail';
 
 //action creator
 import {loadGames, setLoading} from '../actions/gamesAction';
 
-//components
-import Game from '../components/Game';
-import GameDetail from '../components/GameDetail';
+//LAZY LOADING
+import {
+  LazyLoadComponent,
+  LazyLoadImage,
+  trackWindowScroll,
+} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Home = () => {
   //GET CURRENT LOCATION
@@ -58,37 +65,43 @@ const Home = () => {
         <h2>Upcoming games</h2>
         <StyledGames>
           {upcoming.map((game) => (
-            <Game
-              name={game.name}
-              id={game.id}
-              released={game.released}
-              image={game.background_image}
-              key={game.id}
-            />
+            <LazyLoadComponent>
+              <Game
+                name={game.name}
+                id={game.id}
+                released={game.released}
+                image={game.background_image}
+                key={game.id}
+              />
+            </LazyLoadComponent>
           ))}
         </StyledGames>
         <h2>Popular games</h2>
         <StyledGames>
           {popular.map((game) => (
-            <Game
-              name={game.name}
-              id={game.id}
-              released={game.released}
-              image={game.background_image}
-              key={game.id}
-            />
+            <LazyLoadComponent>
+              <Game
+                name={game.name}
+                id={game.id}
+                released={game.released}
+                image={game.background_image}
+                key={game.id}
+              />
+            </LazyLoadComponent>
           ))}
         </StyledGames>
         <h2>New games</h2>
         <StyledGames>
           {newGames.map((game) => (
-            <Game
-              name={game.name}
-              id={game.id}
-              released={game.released}
-              image={game.background_image}
-              key={game.id}
-            />
+            <LazyLoadComponent>
+              <Game
+                name={game.name}
+                id={game.id}
+                released={game.released}
+                image={game.background_image}
+                key={game.id}
+              />
+            </LazyLoadComponent>
           ))}
         </StyledGames>
       </AnimateSharedLayout>
