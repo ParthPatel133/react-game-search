@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {smallImage} from '../util';
+import {scaleUp} from '../animation';
 
 //redux
 import {useDispatch} from 'react-redux';
 import {loadDetail} from '../actions/detailAction';
 import {Link} from 'react-router-dom';
+import {searchGameurl} from '../api';
 
 const Game = ({name, released, image, id}) => {
   //converting id to String for matches pathId in gameDetail, For AnimateSharedLayout
@@ -18,7 +20,13 @@ const Game = ({name, released, image, id}) => {
   };
 
   return (
-    <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
+    <StyledGame
+      variants={scaleUp}
+      initial='hidden'
+      animate='show'
+      layoutId={stringPathId}
+      onClick={loadDetailHandler}
+    >
       <Link to={`/game/${id}`}>
         <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
