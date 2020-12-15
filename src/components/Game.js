@@ -7,7 +7,6 @@ import {scaleUp} from '../animation';
 import {useDispatch} from 'react-redux';
 import {loadDetail} from '../actions/detailAction';
 import {Link} from 'react-router-dom';
-import {searchGameurl} from '../api';
 
 const Game = ({name, released, image, id}) => {
   //converting id to String for matches pathId in gameDetail, For AnimateSharedLayout
