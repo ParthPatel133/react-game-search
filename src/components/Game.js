@@ -48,6 +48,9 @@ const StyledGame = styled(motion.div)`
   cursor: pointer;
   border-radius: 0.5rem;
   overflow: hidden;
+  &:hover {
+    box-shadow: 0px 5px 20px rgba(226, 31, 31, 0.568);
+  }
   img {
     width: 100%;
     height: 40vh;
