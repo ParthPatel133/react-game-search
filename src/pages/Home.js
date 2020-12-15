@@ -3,9 +3,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components';
 import {motion, AnimatePresence, AnimateSharedLayout} from 'framer-motion';
 import {useLocation} from 'react-router-dom';
+import Spinner from '../components/Spinner';
 
 //action creator
-import {loadGames} from '../actions/gamesAction';
+import {loadGames, setLoading} from '../actions/gamesAction';
 
 //components
 import Game from '../components/Game';
@@ -20,12 +21,15 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
+    dispatch(setLoading());
   }, [dispatch]);
 
   //GET BACK FETCHED DATA
-  const {popular, newGames, upcoming, searched} = useSelector(
+  const {popular, newGames, upcoming, searched, loading} = useSelector(
     (state) => state.games
   );
+
+  if (loading) return <Spinner />;
 
   return (
     <StyledGameList>

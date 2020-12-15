@@ -32,3 +32,7 @@ export const fetchSearch = (game_name) => async (dispatch) => {
     },
   });
 };
+
+export const setLoading = () => (dispatch) => {
+  dispatch({type: 'LOADING_GAMES'});
+};
