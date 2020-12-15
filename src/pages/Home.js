@@ -14,7 +14,6 @@ import {loadGames, setLoading} from '../actions/gamesAction';
 //LAZY LOADING
 import {
   LazyLoadComponent,
-  LazyLoadImage,
   trackWindowScroll,
 } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -124,4 +123,4 @@ const StyledGames = styled(motion.div)`
   row-gap: 2rem;
 `;
 
-export default Home;
+export default trackWindowScroll(Home);
