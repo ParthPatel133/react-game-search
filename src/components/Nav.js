@@ -21,9 +21,15 @@ const Nav = () => {
     setTextInput('');
   };
 
+  const clearSearchHandler = () => {
+    dispatch({
+      type: 'CLEAR_SEARCHED',
+    });
+  };
+
   return (
     <StyledNav>
-      <StyledLogo>
+      <StyledLogo onClick={clearSearchHandler}>
         <img src={logo} alt='logo' />
         <h1>Gamer</h1>
       </StyledLogo>
