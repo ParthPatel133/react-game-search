@@ -131,6 +131,8 @@ const StyledCardShadow = styled(motion.div)`
   &::-webkit-scrollbar-track {
     background: white;
   }
+  @media (max-width: 600px) {
+  }
 `;
 
 const StyledDetail = styled(motion.div)`
@@ -145,6 +147,12 @@ const StyledDetail = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media (max-width: 1000px) {
+    padding: 1rem;
+  }
+  @media (max-width: 680px) {
+    padding: 0rem;
+  }
 `;
 
 const StyledStats = styled(motion.div)`
@@ -155,6 +163,9 @@ const StyledStats = styled(motion.div)`
     width: 1.5rem;
     height: 1.5rem;
     display: inline;
+  }
+  @media (max-width: 680px) {
+    flex-direction: column;
   }
 `;
 
@@ -167,6 +178,16 @@ const StyledPlatforms = styled(motion.div)`
   justify-content: space-evenly;
   img {
     margin-left: 2rem;
+  }
+  @media (max-width: 1000px) {
+    img {
+      margin-left: 0.8rem;
+    }
+  }
+  @media (max-width: 680px) {
+    img {
+      margin-left: 0.5rem;
+    }
   }
 `;
 

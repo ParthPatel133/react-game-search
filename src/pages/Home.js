@@ -114,6 +114,12 @@ const StyledGameList = styled(motion.div)`
   h2 {
     padding: 2rem 0;
   }
+  @media (max-width: 1000px) {
+    text-align: center;
+  }
+  @media (max-width: 680px) {
+    padding: 0rem 0.5rem;
+  }
 `;
 
 const StyledGames = styled(motion.div)`

@@ -48,6 +48,7 @@ const StyledGame = styled(motion.div)`
   cursor: pointer;
   border-radius: 0.5rem;
   overflow: hidden;
+  padding: 0rem;
   &:hover {
     box-shadow: 0px 5px 20px rgba(226, 31, 31, 0.568);
   }
