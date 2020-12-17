@@ -1,3 +1,7 @@
+Project Link: https://game-search-133.netlify.app/
+
+Tech Used: React, Redux, Netify, Rawg.ip API, Framer-motion, Styeld-components
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
